@@ -8,25 +8,29 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
-public class Fragment_B extends Fragment {
+public class Fragment_B extends Fragment implements View.OnClickListener {
+    private Button mBtnClick;
+    String TAG = "TAG";
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        Log.d("Fragment_B", "onAttach()");
+        Log.d(TAG, "onAttach() Fragment_B");
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("Fragment_B", "onCreate()");
+        Log.d(TAG, "onCreate() Fragment_B");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Fragment_B", "onCreateView()");
+        Log.d(TAG, "onCreateView() Fragment_B");
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_b, container, false);
     }
@@ -34,50 +38,56 @@ public class Fragment_B extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d("Fragment_B", "onActivityCreated()");
+        mBtnClick = (Button) getActivity().findViewById(R.id.btn);
+        mBtnClick.setOnClickListener(this);
+        Log.d(TAG, "onActivityCreated() Fragment_B");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("Fragment_B", "onStart()");
+        Log.d(TAG, "onStart() Fragment_B");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("Fragment_B", "onResume()");
+        Log.d(TAG, "onResume() Fragment_B");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d("Fragment_B", "onPause()");
+        Log.d(TAG, "onPause() Fragment_B");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d("Fragment_B", "onStop()");
+        Log.d(TAG, "onStop() Fragment_B");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("Fragment_B", "onDestroyView()");
+        Log.d(TAG, "onDestroyView() Fragment_B");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("Fragment_B", "onDestroy()");
+        Log.d(TAG, "onDestroy() Fragment_B");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d("Fragment_B", "onDetach()");
+        Log.d(TAG, "onDetach() Fragment_B");
     }
 
 
+    @Override
+    public void onClick(View v) {
+        ((MainActivity) getActivity()).fragmentC();
+    }
 }
